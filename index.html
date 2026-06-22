@@ -10,10 +10,107 @@
     <meta name="theme-color" content="#747a59" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        min-height: 100vh;
+        background:
+          linear-gradient(135deg, #f7f8fb 0%, #e8edf5 48%, #101620 100%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(79, 141, 255, 0.16));
+      }
+
+      .boot-loader {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: #f7fbff;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        overflow: hidden;
+      }
+
+      .boot-loader::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(7, 11, 18, 0.28);
+        backdrop-filter: blur(18px) saturate(145%);
+      }
+
+      .boot-loader__panel {
+        position: relative;
+        display: grid;
+        justify-items: center;
+        gap: 14px;
+        min-width: 230px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08));
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.36);
+        padding: 26px 28px 24px;
+        backdrop-filter: blur(26px) saturate(180%);
+      }
+
+      .boot-loader__avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 22px;
+        object-fit: cover;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+        animation: boot-float 1.8s ease-in-out infinite;
+      }
+
+      .boot-loader__title {
+        margin: 0;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .boot-loader__bar {
+        width: 164px;
+        height: 6px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.24);
+      }
+
+      .boot-loader__bar span {
+        display: block;
+        width: 44%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #4f8dff, #ffffff, #ff9b58);
+        animation: boot-load 1.15s ease-in-out infinite;
+      }
+
+      @keyframes boot-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+
+      @keyframes boot-load {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(240%); }
+      }
+    </style>
     <title>Satyam Raj | Portfolio</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="boot-loader" role="status" aria-live="polite">
+        <div class="boot-loader__panel">
+          <img class="boot-loader__avatar" src="/favicon.png" alt="" />
+          <p class="boot-loader__title">Satyam Raj</p>
+          <div class="boot-loader__bar" aria-hidden="true"><span></span></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

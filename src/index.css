@@ -1441,3 +1441,183 @@ button {
     font-size: 11px;
   }
 }
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(247, 248, 251, 0.98) 0%, rgba(226, 235, 246, 0.96) 48%, rgba(30, 39, 53, 0.92) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(79, 141, 255, 0.18));
+}
+
+:root[data-theme='dark'] .loading-screen {
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(6, 8, 13, 0.98) 0%, rgba(17, 24, 36, 0.98) 54%, rgba(36, 45, 62, 0.96) 100%),
+    linear-gradient(180deg, rgba(79, 141, 255, 0.14), rgba(255, 155, 88, 0.08));
+}
+
+.loading-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.2) 38%, transparent 68%);
+  transform: translateX(-100%);
+  animation: loader-sheen 2.6s ease-in-out infinite;
+}
+
+.loading-screen__panel {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  width: min(100%, 292px);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.26));
+  box-shadow: 0 28px 90px rgba(28, 39, 56, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.54);
+  padding: 28px 30px 26px;
+  -webkit-backdrop-filter: blur(28px) saturate(185%);
+  backdrop-filter: blur(28px) saturate(185%);
+}
+
+:root[data-theme='dark'] .loading-screen__panel {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, rgba(41, 49, 64, 0.72), rgba(12, 16, 24, 0.52));
+  box-shadow: 0 30px 96px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.loading-screen__avatar-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 28px;
+}
+
+.loading-screen__avatar-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 31px;
+  background: conic-gradient(from 0deg, var(--olive), rgba(255, 255, 255, 0.9), var(--orange), var(--olive));
+  animation: loader-ring 1.7s linear infinite;
+}
+
+.loading-screen__avatar-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 24px;
+  background: var(--window-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+}
+
+.loading-screen__avatar {
+  position: relative;
+  z-index: 1;
+  width: 78px;
+  height: 78px;
+  border-radius: 23px;
+  object-fit: cover;
+  box-shadow: 0 18px 44px rgba(20, 28, 40, 0.24);
+  animation: loader-float 1.9s ease-in-out infinite;
+}
+
+.loading-screen__copy {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.loading-screen__copy span,
+.loading-screen__copy strong {
+  display: block;
+}
+
+.loading-screen__copy span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.loading-screen__copy strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.loading-screen__bar {
+  width: 184px;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(84, 112, 143, 0.18);
+  box-shadow: inset 0 1px 2px rgba(20, 28, 40, 0.12);
+}
+
+:root[data-theme='dark'] .loading-screen__bar {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.loading-screen__bar span {
+  display: block;
+  width: 45%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--olive), rgba(255, 255, 255, 0.92), var(--orange));
+  animation: loader-progress 1.12s ease-in-out infinite;
+}
+
+@keyframes loader-ring {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes loader-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes loader-progress {
+  0% {
+    transform: translateX(-105%);
+  }
+  100% {
+    transform: translateX(230%);
+  }
+}
+
+@keyframes loader-sheen {
+  0% {
+    transform: translateX(-100%);
+  }
+  52%, 100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen::before,
+  .loading-screen__avatar,
+  .loading-screen__avatar-wrap::before,
+  .loading-screen__bar span {
+    animation: none;
+  }
+}
