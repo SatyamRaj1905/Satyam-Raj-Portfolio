@@ -4,7 +4,7 @@ A responsive React + Vite portfolio for **Satyam Raj**, built as a premium deskt
 
 ## Live Demo
 
-The project is ready to deploy on Vercel. Add your deployed link here after the first deployment:
+You can find a live demo of this project on [Satyam Raj Portfolio](https://satyam-raj-portfolio.vercel.app/) or below link.
 
 ```txt
 https://satyam-raj-portfolio.vercel.app/
@@ -156,7 +156,7 @@ src/data/portfolio.js
 
 ## Contact
 
-The contact section uses direct links only:
+The contact section has these many links to showcase:
 
 - Phone
 - Email
@@ -164,7 +164,24 @@ The contact section uses direct links only:
 - GitHub
 - LeetCode
 - CSES
-- Codeforces
-- CodeChef
+- Codeforces (can be enabled by going inside ./src/data/portfolio.js)
+- CodeChef (can be enabled by going inside ./src/data/portfolio.js)
 
-There is no mail-sending backend or SMTP setup in this version.
+## License and Ownership
+
+All rights to this project belong to Satyam Raj.
+
+Unless clearly stated otherwise, you are not allowed to copy, modify, distribute, or use this project for personal, academic, commercial, or professional purposes without permission.
+
+## Final Note
+
+This project is a part of my personal learning and portfolio journey.
+
+You can get inspired.
+You can suggest improvements.
+You can report issues.
+
+But **please do not clone my hard work and call it yours.**
+
+
+
