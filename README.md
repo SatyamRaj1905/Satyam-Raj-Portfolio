@@ -7,7 +7,7 @@ A responsive React + Vite portfolio for **Satyam Raj**, built as a premium deskt
 The project is ready to deploy on Vercel. Add your deployed link here after the first deployment:
 
 ```txt
-https://your-vercel-project-url.vercel.app
+https://satyam-raj-portfolio.vercel.app/
 ```
 
 ## Features

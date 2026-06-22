@@ -8,7 +8,7 @@ export const profile = {
   phoneHref: 'tel:+918529228967',
   email: 'satyamraj1905@gmail.com',
   emailHref: 'mailto:satyamraj1905@gmail.com',
-  portfolio: 'https://satyam-raj-1905.onrender.com/',
+  portfolio: 'https://satyam-raj-portfolio.vercel.app/',
   resume: '/Satyam_Raj.pdf',
   links: {
     linkedin: 'https://www.linkedin.com/in/satyam-raj-b59061250/',
