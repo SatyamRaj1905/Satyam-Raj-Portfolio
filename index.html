@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +7,19 @@
       name="description"
       content="Satyam Raj portfolio - retro desktop inspired React portfolio with experience, projects, skills, education, achievements, and contact."
     />
-    <meta name="theme-color" content="#747a59" />
+    <meta name="theme-color" content="#06080d" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
+    <script>
+      (() => {
+        try {
+          const theme = window.localStorage.getItem('satyam-raj-retro-theme') || 'dark';
+          document.documentElement.dataset.theme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
     <style>
       :root {
         color-scheme: light dark;
@@ -22,6 +32,12 @@
         background:
           linear-gradient(135deg, #f7f8fb 0%, #e8edf5 48%, #101620 100%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(79, 141, 255, 0.16));
+      }
+
+      html[data-theme='dark'] body {
+        background:
+          linear-gradient(135deg, #06080d 0%, #111824 54%, #242d3e 100%),
+          linear-gradient(180deg, rgba(79, 141, 255, 0.14), rgba(255, 155, 88, 0.08));
       }
 
       .boot-loader {

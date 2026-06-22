@@ -4,8 +4,8 @@ const THEME_KEY = 'satyam-raj-retro-theme';
 
 export function useTheme() {
   const [theme, setTheme] = useState(() => {
-    if (typeof window === 'undefined') return 'light';
-    return window.localStorage.getItem(THEME_KEY) || 'light';
+    if (typeof window === 'undefined') return 'dark';
+    return window.localStorage.getItem(THEME_KEY) || 'dark';
   });
 
   useEffect(() => {
